@@ -1,26 +1,26 @@
-## Overview of the SPremiRNA workflow
+## Overview of the STmiR workflow
 (1) Perform basic analysis of the spatial transcriptome data from Visium, and in using the bulk sequenced data, pick out the common mRNA genes and miRNA genes between them  
 (2) Build an xgboost model, train it using the bulk sequencing dataset, and then perform migration learning to predict miRNAs from the spatial transcriptome data  
 (3) Use single-cell expression profiles of the same tissue to get the cell type in each spot in the spatial transcriptome data using cell2location  
 (4) Correlation analysis of miRNA and mRNA expression for malignant cell types  
 ## Installation
 
-We suggest using a separate conda environment for installing SPremiRNA.  
+We suggest using a separate conda environment for installing STmiR.  
 
-Create conda environment and install `SPremiRNA` package  
+Create conda environment and install `STmiR` package  
 
 ```shell
-conda create -y -n SPremiRNA_env python=3.9
+conda create -y -n STmiR_env python=3.9
 
-conda activate SPremiRNA_env
-pip install SPremiRNA
+conda activate STmiR_env
+pip install STmiR
 ```
 
 Finally, to use this environment in jupyter notebook, add jupyter kernel for this environment:
 
 ```shell
-conda activate SPremiRNA_env
-python -m ipykernel install --user --name=SPremiRNA_env --display-name='Environment (SPremiRNA)'
+conda activate STmiR_env
+python -m ipykernel install --user --name=STmiR_env --display-name='Environment (STmiR)'
 ```
 Before installing cell2location and it's dependencies, it could be necessary to make sure that you are creating a fully isolated conda environment by telling python to NOT use user site for installing packages by running this line before creating conda environment and every time before activatin conda environment in a new terminal session:
 
@@ -29,7 +29,7 @@ export PYTHONNOUSERSITE="literallyanyletters"
 ```
 
 ## Usage and Tutorial
-SPremiRNA Steps to run the package:  
+STmiR Steps to run the package:  
 - spatial_process  
 Input：Visium_FFPE_Human_X_Cancer_filtered_feature_bc_matrix.h5  
 Output：X_mrna.h5ad，X_ranked_tcga_ccle_mirna.csv，X_ranked_tcga_ccle_mrna.csv，X_st_mrna.csv
